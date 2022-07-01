@@ -1,16 +1,14 @@
 //Main Page variable
  var mainTextEl = document.querySelector(".mainText");
  var startQuizBtn = document.querySelector(".start-btn");
- console.log(startQuizBtn)
+
  //var quizContainer = document.createElement("div");
 
  
-//  startQuizBtn.addEventListener("click", function(){
+ startQuizBtn.addEventListener("click", function(){
     
-//     debugger
-    
-//     mainTextEl.replaceChildren();
-// })
+    mainTextEl.replaceChildren();
+})
 
 //console.log("The click listener is working");
 //;
