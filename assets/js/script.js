@@ -24,7 +24,7 @@ var startQuizBtnEl = document.querySelector(".start-btn");
 var mainTextEl = document.querySelector(".mainText");
 var startDiv = document.querySelector("#startdiv")
 var questionContainer = document.querySelector (".start-page-title")
-
+var timerEl =document.querySelector ("#timer")
 
 //On click replace start page elements with first question///
 startQuizBtnEl.addEventListener("click", function(){
@@ -53,7 +53,7 @@ questionContainer.appendChild (answerContainer);
     answerOne.className = "answerOne";
     answerOne.textContent = "is used for math"
     answerContainer.appendChild (answerOne);
-    answerOne.addEventListener ("click", removeWrong());
+    answerOne.addEventListener ("click", removeWrong);
 
     //answer choice two
     var answerTwo = document.createElement ("button");
@@ -75,22 +75,36 @@ questionContainer.appendChild (answerContainer);
     answerContainer.appendChild (answerFour);
     answerFour.addEventListener ("click", removeWrong)
     
-    //This will run when wrong answer is picked
+
+
+    
+//This will run when wrong answer is picked
     var removeWrong = function() {
-        //this needs to subtract from time left
+        //it needs to subtract time from time left
         //also remove questionContainer
         //move to the next question
         //also windowAlert you picked the wrong answer
     }
 
 
+//Countdown timer function
+    function countdown() {
+        var timeLeft = 60;
 
+        var timerId = setInterval(function () {
+            if (timeLeft > 0) {
+              timerEl.textContent = 'Time left is ' + timeLeft;
+            } else {
+              timerEl.textContent = ''
+              clearInterval(timerId)
+              displayMessage();
+            }
 
-
-
-
-
-/////begin timer on on clicking of start button///////
+            timeLeft = timeLeft - 1;
+        }, 1000);
+      }
+      
+      countdown();
 
 
 /////////////Any thing below this is a scratchpad//////////
