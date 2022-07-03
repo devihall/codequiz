@@ -18,7 +18,6 @@
 
 
 
-
 ////////Main Page references//////////////////////////
 var startQuizBtnEl = document.querySelector(".start-btn");
 var mainTextEl = document.querySelector(".mainText");
@@ -26,7 +25,7 @@ var startDiv = document.querySelector("#startdiv")
 var questionContainer = document.querySelector (".start-page-title")
 var timerEl =document.querySelector ("#timer")
 
-//On click replace start page elements with first question///
+//On click replace start page elements with first question container///
 startQuizBtnEl.addEventListener("click", function(){
 mainTextEl.replaceChild(questionContainer, startDiv)
 })
@@ -36,18 +35,18 @@ var  questionContainer = document.createElement ("div")
      questionContainer.className= "question-container"
      mainTextEl.appendChild.questionContainer;
      
-     console.log ("hello")
-
     //Question One
     var question = document.createElement ("h1");
         question.className = "question";
         question.textContent = "Html language..."
         questionContainer.appendChild (question);
 
+       
 //create answer container
 var answerContainer = document.createElement ("div")
 answerContainer.className = "answer-container";
 questionContainer.appendChild (answerContainer);
+
     //answer choice one
     var answerOne = document.createElement ("button")
     answerOne.className = "answerOne";
@@ -67,8 +66,9 @@ questionContainer.appendChild (answerContainer);
     answerThree.className = ("answerThree");
     answerThree.textContent ="is used to create websites";
     answerContainer.appendChild (answerThree);
-    answerThree.addEventListener ("click", questionContainer.remove())
+    answerThree.addEventListener ("click", questionContainer.remove);
 
+    //answer choice four
     var answerFour = document.createElement ("button");
     answerFour.className = ("answerFour");
     answerFour.textContent = "is used for nothing"
@@ -77,19 +77,20 @@ questionContainer.appendChild (answerContainer);
     
 
 
-    
-//This will run when wrong answer is picked
+
+//Question 1-This will run when wrong answer is picked
     var removeWrong = function() {
-        //it needs to subtract time from time left
-        //also remove questionContainer
-        //move to the next question
-        //also windowAlert you picked the wrong answer
+        timeLeft = timeLeft - 5;
+        questionContainer.remove();
+        questionTwo();
+        window.alert ("Wrong Answer!") 
     }
 
 
 //Countdown timer function
+startQuizBtnEl.addEventListener("click", countdown) 
     function countdown() {
-        var timeLeft = 60;
+        var timeLeft = 120;
 
         var timerId = setInterval(function () {
             if (timeLeft > 0) {
@@ -103,8 +104,10 @@ questionContainer.appendChild (answerContainer);
             timeLeft = timeLeft - 1;
         }, 1000);
       }
+
       
-      countdown();
+      
+     
 
 
 /////////////Any thing below this is a scratchpad//////////
