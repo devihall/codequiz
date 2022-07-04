@@ -16,7 +16,7 @@
 //correctAnswer: "all of the above"
 
 ////////Main Page references//////////////////////////
-var timeLeft = 120;
+var timeLeft = 240;
 
 var startQuizBtnEl = document.querySelector(".start-btn");
 var mainTextEl = document.querySelector(".mainText");
@@ -48,7 +48,7 @@ mainTextEl.appendChild.questionContainer;
 //Question One
 var question = document.createElement("h1");
 question.className = "question";
-question.textContent = "1) in web development, Html ...";
+question.textContent = "1) In web development, Html ...";
 questionContainer.appendChild(question);
 
 //create answer container
@@ -94,6 +94,7 @@ answerFour.addEventListener("click", removeWrong);
 ///////////////////////////////////////////////////////
 
 // --------------QUESTION 2----------------//
+
 //This will run when wrong answer is picked
 var removeWrong = function () {
   timeLeft = timeLeft - 5;
@@ -110,7 +111,7 @@ mainTextEl.appendChild.questionContainerTwo;
 //Question two
 var question = document.createElement("h1");
 question.className = "question";
-question.textContent = "Arrays in JavaScript can be used to store ____.";
+question.textContent = "2) Arrays in JavaScript can be used to store ____.";
 questionContainerTwo.appendChild(question);
 
 //create answer container
@@ -150,12 +151,77 @@ mainTextEl.replaceChild(questionContainerThree, questionContainerTwo),
   window.alert("Right answer! Well done!");
 })
 ////////////////////////////////////////////////////////
+//--------------QUESTION 3---------------//
+
+//This will run when wrong answer is picked
+var removeWrong = function () {
+  timeLeft = timeLeft - 5;
+  mainTextEl.replaceChild(questionFourContainer, questionContainerThree);
+  window.alert("Wrong Answer! You lost 5 seconds!");
+};
 
 //create question three container
 var questionContainerThree = document.createElement("div");
 questionContainerThree.className = "question-container";
-questionContainerThree.textContent = "Hi I am a question container"
+// questionContainerThree.textContent = "Hi I am a question container"
 mainTextEl.appendChild.questionContainerThree;
+
+//question three
+var question = document.createElement("h1");
+question.className = "question";
+question.textContent = "3) The condition in an if / else statement is enclosed with ________.";
+questionContainerThree.appendChild(question);
+
+//create answer container
+var answerContainer = document.createElement("div");
+answerContainer.className = "answer-container";
+questionContainerThree.appendChild(answerContainer);
+
+//answer choice one
+var answerOne = document.createElement("button");
+answerOne.className = "answerOne";
+answerOne.textContent = "quotes";
+answerContainer.appendChild(answerOne);
+answerOne.addEventListener("click", removeWrong);
+
+//answer choice two
+var answerTwo = document.createElement("button");
+answerTwo.className = "answerTwo";
+answerTwo.textContent = "curly brackets";
+answerContainer.appendChild(answerTwo);
+answerTwo.addEventListener("click", removeWrong);
+
+
+//answer choice three
+var answerThree = document.createElement("button");
+answerThree.className = "answerThree";
+answerThree.textContent = "parenthesis";
+answerContainer.appendChild(answerThree);
+answerThree.addEventListener("click", removeWrong);
+
+//answer choice four
+var answerFour = document.createElement("button");
+answerFour.className = "answerFour";
+answerFour.textContent = "all of the above";
+answerContainer.appendChild(answerFour);
+answerFour.addEventListener("click", function(){
+mainTextEl.replaceChild(questionContainerThree, questionContainerTwo),
+  window.alert("Right answer! Well done!");
+})
+
+
+////////////////////////////////////////////////////////
+//--------------QUESTION 4---------------//
+//This will run when wrong answer is picked
+var removeWrong = function () {
+  timeLeft = timeLeft - 5;
+  mainTextEl.replaceChild(questionFiveContainer, questionContainerFour);
+  window.alert("Wrong Answer! You lost 5 seconds!");
+};
+
+
+
+
 
 
 ///////////////////////////////////////////////////////
