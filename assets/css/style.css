@@ -146,3 +146,20 @@ head {
 .button {
     appearance: auto;
 }
+
+.end-text {
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+
+}
+
+.end-btn {
+    grid-column: 3/3;
+    grid-row: 3/3;
+    font-weight: 600;
+    font-size:30px ;
+    margin:20px 0;
+    background-color: #4C5958;
+    color: #8AA6A3;
+}

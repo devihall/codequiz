@@ -328,13 +328,33 @@ answerFour.addEventListener("click", removeWrong);
 ////////////////////////////////////////////////////////
 //--------------END PAGE---------------//
 
-//create question five container
+//create question End Page container
 var endPage = document.createElement("div");
 endPage.className = "start-page-title";
 endPage.textContent = "Congrats! You have completed this quiz."
 mainTextEl.appendChild.endPage;
 
+//create View High Score button on the the End Page
+var viewHighScore = document.createElement("button");
+viewHighScore.className = "end-btn";
+viewHighScore.textContent=  "High Scores";
+endPage.appendChild (viewHighScore)
+viewHighScore.addEventListener("click", function(){
+    endPage.replaceChild (initialContainer,viewHighScore)
+});
 
+// //create Initials input container
+// var initialContainer = document.createElement ("div");
+// endPage.appendChild (initialContainer);
+// endPage.textContent = "Enter your initials:"
+
+
+// //create input box
+// var initialBox = document.createElement ("input");
+// // initialInput.setAttribute ("name", "input");
+// // initialInput.setAttribute ("placeholder", "INITIALS");
+// // initialInput.setAttribute ("type", "text");
+// initialContainer.appendChild (initialBox);
 
 
 
