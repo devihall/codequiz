@@ -16,7 +16,7 @@
 //correctAnswer: "all of the above"
 
 ////////Main Page references//////////////////////////
-var timeLeft = 240;
+var timeLeft = 120;
 
 var startQuizBtnEl = document.querySelector(".start-btn");
 var mainTextEl = document.querySelector(".mainText");
@@ -156,7 +156,7 @@ mainTextEl.replaceChild(questionContainerThree, questionContainerTwo),
 //This will run when wrong answer is picked
 var removeWrong = function () {
   timeLeft = timeLeft - 5;
-  mainTextEl.replaceChild(questionFourContainer, questionContainerThree);
+  mainTextEl.replaceChild(questionContainerFour, questionContainerThree);
   window.alert("Wrong Answer! You lost 5 seconds!");
 };
 
@@ -205,7 +205,7 @@ answerFour.className = "answerFour";
 answerFour.textContent = "all of the above";
 answerContainer.appendChild(answerFour);
 answerFour.addEventListener("click", function(){
-mainTextEl.replaceChild(questionContainerThree, questionContainerTwo),
+mainTextEl.replaceChild(questionContainerFour, questionContainerThree),
   window.alert("Right answer! Well done!");
 })
 
@@ -215,10 +215,124 @@ mainTextEl.replaceChild(questionContainerThree, questionContainerTwo),
 //This will run when wrong answer is picked
 var removeWrong = function () {
   timeLeft = timeLeft - 5;
-  mainTextEl.replaceChild(questionFiveContainer, questionContainerFour);
+  mainTextEl.replaceChild(questionContainerFive, questionContainerFour);
   window.alert("Wrong Answer! You lost 5 seconds!");
 };
 
+//create question four container
+var questionContainerFour = document.createElement("div");
+questionContainerFour.className = "question-container";
+// questionContainerFour.textContent = "Hi I am a question container"
+mainTextEl.appendChild.questionContainerFour;
+
+//question four
+var question = document.createElement("h1");
+question.className = "question";
+question.textContent = "4) Inside which HTML element do we put the JavaScript?";
+questionContainerFour.appendChild(question);
+
+//create answer container
+var answerContainer = document.createElement("div");
+answerContainer.className = "answer-container";
+questionContainerFour.appendChild(answerContainer);
+
+//answer choice one
+var answerOne = document.createElement("button");
+answerOne.className = "answerOne";
+answerOne.textContent = "<scripting>";
+answerContainer.appendChild(answerOne);
+answerOne.addEventListener("click", removeWrong);
+
+//answer choice two
+var answerTwo = document.createElement("button");
+answerTwo.className = "answerTwo";
+answerTwo.textContent = "<javascript>";
+answerContainer.appendChild(answerTwo);
+answerTwo.addEventListener("click", removeWrong);
+
+
+//answer choice three
+var answerThree = document.createElement("button");
+answerThree.className = "answerThree";
+answerThree.textContent = "<js>";
+answerContainer.appendChild(answerThree);
+answerThree.addEventListener("click", removeWrong);
+
+//answer choice four
+var answerFour = document.createElement("button");
+answerFour.className = "answerFour";
+answerFour.textContent = "<script>";
+answerContainer.appendChild(answerFour);
+answerFour.addEventListener("click", function(){
+mainTextEl.replaceChild(questionContainerFive, questionContainerFour),
+  window.alert("Right answer! Well done!");
+})
+
+////////////////////////////////////////////////////////
+//--------------QUESTION 5---------------//
+//This will run when wrong answer is picked
+var removeWrong = function () {
+  timeLeft = timeLeft - 5;
+  mainTextEl.replaceChild(endPage, questionContainerFive);
+  window.alert("Wrong Answer! You lost 5 seconds!");
+};
+
+//create question five container
+var questionContainerFive = document.createElement("div");
+questionContainerFive.className = "question-container";
+// questionContainerFive.textContent = "Hi I am a question container"
+mainTextEl.appendChild.questionContainerFive;
+
+//question five
+var question = document.createElement("h1");
+question.className = "question";
+question.textContent = "5) How do you create a function in JavaScript?";
+questionContainerFive.appendChild(question);
+
+//create answer container
+var answerContainer = document.createElement("div");
+answerContainer.className = "answer-container";
+questionContainerFive.appendChild(answerContainer);
+
+//answer choice one
+var answerOne = document.createElement("button");
+answerOne.className = "answerOne";
+answerOne.textContent = "function , myFunction()";
+answerContainer.appendChild(answerOne);
+answerOne.addEventListener("click", removeWrong);
+
+//answer choice two
+var answerTwo = document.createElement("button");
+answerTwo.className = "answerTwo";
+answerTwo.textContent = "function myFunction()";
+answerContainer.appendChild(answerTwo);
+answerTwo.addEventListener("click", function () {
+  mainTextEl.replaceChild(endPage, questionContainerFive),
+    window.alert("Right answer! Well done!");
+});
+
+//answer choice three
+var answerThree = document.createElement("button");
+answerThree.className = "answerThree";
+answerThree.textContent = "function = myFunction()";
+answerContainer.appendChild(answerThree);
+answerThree.addEventListener("click", removeWrong);
+
+//answer choice four
+var answerFour = document.createElement("button");
+answerFour.className = "answerFour";
+answerFour.textContent = "function: myFunction";
+answerContainer.appendChild(answerFour);
+answerFour.addEventListener("click", removeWrong);
+
+////////////////////////////////////////////////////////
+//--------------END PAGE---------------//
+
+//create question five container
+var endPage = document.createElement("div");
+endPage.className = "start-page-title";
+endPage.textContent = "Congrats! You have completed this quiz."
+mainTextEl.appendChild.endPage;
 
 
 
