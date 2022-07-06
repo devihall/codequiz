@@ -25,6 +25,7 @@ var questionContainer = document.querySelector(".start-page-title");
 var answerContainer = document.querySelector(".answer-container");
 
 var timerEl = document.querySelector("#timer");
+var timerId;
 
 //This will run when wrong answer is picked
 var removeWrong = function () {
@@ -328,41 +329,50 @@ answerFour.addEventListener("click", removeWrong);
 ////////////////////////////////////////////////////////
 //--------------END PAGE---------------//
 
-//create question End Page container
+//create question End Page DIV container
+
 var endPage = document.createElement("div");
 endPage.className = "start-page-title";
-endPage.textContent = "Congrats! You have completed this quiz."
-mainTextEl.appendChild.endPage;
+endPage.textContent = "You have completed this quiz. Click SUBMIT.";
+// mainTextEl.appendChild(endPage);
 
-//create View High Score button on the the End Page
-var viewHighScore = document.createElement("button");
-viewHighScore.className = "end-btn";
-viewHighScore.textContent=  "High Scores";
-endPage.appendChild (viewHighScore)
-viewHighScore.addEventListener("click", function(){
-    endPage.replaceChild (initialContainer,viewHighScore)
+//create SUBMIT button on the the End Page DIV
+var submitButton = document.createElement("button");
+submitButton.className = "end-btn";
+submitButton.textContent = "SUBMIT";
+endPage.appendChild(submitButton);
+submitButton.addEventListener("click", function () {
+  clearInterval(timerId);
+  var initialContainer = document.createElement("div");
+  endPage.appendChild(initialContainer);
+  var submitInitials = document.createElement("button");
+  submitInitials.setAttribute("id", "initials");
+  submitInitials.textContent = "SAVE";
+  endPage.appendChild(submitInitials);
+  // viewHighScore.appendChild (initialContainer);
+  // endPage.textContent = "Enter your initials:";
+
+  //create input box
+  var initialBox = document.createElement("input");
+  initialBox.setAttribute("name", "input");
+  initialBox.setAttribute("placeholder", "ENTER INITIALS");
+  initialBox.setAttribute("id", "inputbox");
+  initialBox.setAttribute("type", "text");
+  initialContainer.appendChild(initialBox);
+
+  // endPage.replaceChild(initialContainer, viewHighScore);
+
+  document.querySelector("#initials").addEventListener("click", function () {
+    var initials = document.querySelector("#inputbox").value;
+    console.log(initials, timeLeft);
+    localStorage.setItem ("highscore", initials+" " + timeLeft)
+  });
 });
-
-// //create Initials input container
-// var initialContainer = document.createElement ("div");
-// endPage.appendChild (initialContainer);
-// endPage.textContent = "Enter your initials:"
-
-
-// //create input box
-// var initialBox = document.createElement ("input");
-// // initialInput.setAttribute ("name", "input");
-// // initialInput.setAttribute ("placeholder", "INITIALS");
-// // initialInput.setAttribute ("type", "text");
-// initialContainer.appendChild (initialBox);
-
-
-
 ///////////////////////////////////////////////////////
 //Countdown timer function
 startQuizBtnEl.addEventListener("click", countdown);
 function countdown() {
-  var timerId = setInterval(function () {
+  timerId = setInterval(function () {
     if (timeLeft > 0) {
       timerEl.textContent = "Time left is " + timeLeft;
     } else {
