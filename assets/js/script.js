@@ -16,7 +16,7 @@
 //correctAnswer: "all of the above"
 
 ////////Main Page references//////////////////////////
-var timeLeft = 120;
+var timeLeft = 60;
 
 var startQuizBtnEl = document.querySelector(".start-btn");
 var mainTextEl = document.querySelector(".mainText");
@@ -333,14 +333,19 @@ answerFour.addEventListener("click", removeWrong);
 
 var endPage = document.createElement("div");
 endPage.className = "start-page-title";
-endPage.textContent = "You have completed this quiz. Click SUBMIT.";
-// mainTextEl.appendChild(endPage);
+// endPage.textContent = "You have completed this quiz. Click SUBMIT.";
+ 
+
+
 
 //create SUBMIT button on the the End Page DIV
 var submitButton = document.createElement("button");
 submitButton.className = "end-btn";
-submitButton.textContent = "SUBMIT";
+submitButton.textContent = "SUBMIT Quiz";
 endPage.appendChild(submitButton);
+
+
+//clicking submit button brings up initials input box
 submitButton.addEventListener("click", function () {
   clearInterval(timerId);
   var initialContainer = document.createElement("div");
@@ -348,9 +353,9 @@ submitButton.addEventListener("click", function () {
   var submitInitials = document.createElement("button");
   submitInitials.setAttribute("id", "initials");
   submitInitials.textContent = "SAVE";
+  submitInitials.className = "save-btn"
   endPage.appendChild(submitInitials);
-  // viewHighScore.appendChild (initialContainer);
-  // endPage.textContent = "Enter your initials:";
+  
 
   //create input box
   var initialBox = document.createElement("input");
@@ -367,7 +372,16 @@ submitButton.addEventListener("click", function () {
     console.log(initials, timeLeft);
     localStorage.setItem ("highscore", initials+" " + timeLeft)
   });
+submitInitials.addEventListener("click", function(){
+  var viewHighScore = document.createElement("p")
+  viewHighScore.textContent = ("highscore", initials + " " + timeLeft);
+})
 });
+
+
+
+
+
 ///////////////////////////////////////////////////////
 //Countdown timer function
 startQuizBtnEl.addEventListener("click", countdown);
