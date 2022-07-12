@@ -371,11 +371,14 @@ submitButton.addEventListener("click", function () {
     var initials = document.querySelector("#inputbox").value;
     console.log(initials, timeLeft);
     localStorage.setItem ("highscore", initials+" " + timeLeft)
+  var viewHighScore = document.createElement("p");
+  // var result = localStorage.getItem("highscore");
+  viewHighScore.textContent = "highscore" + initials + " " + timeLeft;
+  initialContainer.appendChild (viewHighScore)
   });
-submitInitials.addEventListener("click", function(){
-  var viewHighScore = document.createElement("p")
-  viewHighScore.textContent = ("highscore", initials + " " + timeLeft);
-})
+// submitInitials.addEventListener("click", function(){
+  
+// })
 });
 
 
